@@ -106,16 +106,18 @@ public class Main {
             System.out.println(animalList.get(x));
         }
 
+        //---------------------Tree Map-----------------------
+        TreeMap<String, Animal> tree = new TreeMap<>();
+        tree.putAll(animalMap);
+
+
+        System.out.println("TreeMap");
+        for (String key : tree.keySet()){
+            System.out.println("Key: " + key + " Value: " +
+                    tree.get(key));
+        }
 
     }
 
-    //---------------------Tree Map-----------------------
-    TreeMap<String, Animal> tree = new TreeMap<>();
-    tree.putAll(animalMap);
 
-    System.out.println("TreeMap");
-    for (String key : tree.keySet()){
-        System.out.println("Key: " + key + " Value: " +
-                tree.get(key));
-    }
 }
