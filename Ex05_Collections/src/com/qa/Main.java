@@ -8,6 +8,10 @@ import com.qa.model.Rabbit;
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -60,5 +64,58 @@ public class Main {
         for (Animal animal: animalMap2.keySet()) {
             System.out.println("Key: " + animal + " Value: " + animalMap2.get(animal));
         }
+
+        //-------------------------Hash Set---------------------------------------
+        HashSet<Animal> set = new HashSet<>();
+
+        set.addAll(animalList);
+
+        set.add(c);
+        set.add(c2);
+
+        Iterator<Animal> iter = set.iterator();
+        while(iter.hasNext()) {
+            System.out.println(iter.next());
+        }
+
+        //finding specific object
+        System.out.println("\nFinding Spot.");
+        for (Animal a: animalList) {
+            if (a.getName().equals("Spot")) {
+                System.out.println(
+                        "Found Spot in the arraylist: " + a);
+
+            }
+        }
+
+        for (Animal a: animalMap.values()) {
+            if (a.getName().equals("Spot")) {
+                System.out.println(
+                        "Found Spot in the arraylist: " + a);
+
+            }
+        }
+
+        System.out.println("");
+
+        //sort arrayList
+
+        Collections.sort(animalList);
+        System.out.println("Sorted animal list");
+        for (int x=0; x < animalList.size(); x++) {
+            System.out.println(animalList.get(x));
+        }
+
+
+    }
+
+    //---------------------Tree Map-----------------------
+    TreeMap<String, Animal> tree = new TreeMap<>();
+    tree.putAll(animalMap);
+
+    System.out.println("TreeMap");
+    for (String key : tree.keySet()){
+        System.out.println("Key: " + key + " Value: " +
+                tree.get(key));
     }
 }
